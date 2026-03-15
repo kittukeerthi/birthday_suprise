@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Nani ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:url("https://img.pikbest.com/wp/202408/pure-white-background-clean-and-crisp-textured_9964692.jpg!bw700");
+background-size:cover;
+background-position:center;
+color:red;
+text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+/* sections */
+
+.section{
+display:none;
+animation:fade 1s;
+width:90%;
+max-width:900px;
+}
+
+.section.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0; transform:scale(0.9);}
+to{opacity:1; transform:scale(1);}
+}
+
+/* first screen */
+
+.firstScreen{
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.firstText{
+width:50%;
+font-size:28px;
+text-align:left;
+}
+
+.bigHeart{
+font-size:120px;
+cursor:pointer;
+animation:beat 1s infinite;
+}
+
+@keyframes beat{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+.tapHeart{
+margin-top:10px;
+font-size:22px;
+color:#ff2e63;
+animation:bounce 1.2s infinite;
+}
+
+
+button{ margin-top:25px; padding:12px 25px; border:none; border-radius:20px; background:#ff2e63; color:white; font-size:16px; cursor:pointer; }
+
+@keyframes bounce{
+0%{transform:translateY(0);}
+50%{transform:translateY(8px);}
+100%{transform:translateY(0);}
+}
+
+/* heart explosion */
+
+.explodeHeart{
+position:absolute;
+font-size:25px;
+animation:explodeHeart 1.5s forwards;
+}
+
+@keyframes explodeHeart{
+0%{transform:scale(0);}
+100%{transform:scale(2);opacity:0;}
+}
+
+/* falling hearts */
+
+.fallHeart{
+position:fixed;
+top:-20px;
+font-size:16px;
+opacity:0.7;
+animation:fallHeart linear forwards;
+}
+
+@keyframes fallHeart{
+0%{transform:translateY(-20px);}
+100%{transform:translateY(100vh);opacity:0;}
+}
+
+/* memories */
+
+.carousel{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.carousel img{
+width:200px;
+border-radius:12px;
+opacity:0;
+transform:rotateY(90deg);
+}
+
+.flip{
+animation:flip 1s forwards;
+}
+
+@keyframes flip{
+to{opacity:1; transform:rotateY(0deg);}
+}
+
+.giftBox{
+font-size:40px;
+cursor:pointer;
+}
+
+/* envelope */
+
+.envelope{
+font-size:90px;
+cursor:pointer;
+}
+
+#letter{
+margin-top:20px;
+width:350px;
+padding:20px;
+background:rgba(255,255,255,0.85);
+border-radius:15px;
+display:none;
+color:#333;
+font-size:18px;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+#heartNext{
+display:none;
+margin-top:20px;
+}
+
+#heartNext div{
+font-size:70px;
+cursor:pointer;
+animation:beat 1s infinite;
+}
+
+/* timer */
+
+#timer{
+font-size:26px;
+margin-top:20px;
+}
+
+/* reasons */
+
+#reasonsBoard{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+margin-top:30px;
+}
+
+.reasonStrip{
+background:white;
+color:#333;
+padding:12px 18px;
+border-radius:5px;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+display:flex;
+align-items:center;
+font-size:15px;
+}
+
+/* fireworks */
+
+.firework{
+position:absolute;
+font-size:25px;
+animation:explode 1.5s forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(0);}
+100%{transform:scale(2); opacity:0;}
+}
+
+/* final message */
+
+.finalMessage{
+font-size:30px;
+line-height:1.7;
+}
+
+.glowLove{
+font-size:40px;
+color:white;
+text-shadow:
+0 0 10px #ff2e63,
+0 0 20px #ff2e63,
+0 0 40px #ff2e63,
+0 0 80px #ff2e63;
+margin-top:40px;
+}
+
+
+
+/* floating hearts */
+
+.floatingHeart{
+position:absolute;
+font-size:22px;
+transition:all 2s ease;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="c:\Users\KEERTHI\Downloads\3 Movie - Bgm.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 1 -->
+
+<div class="section active">
+
+<div class="firstScreen">
+
+<div class="firstText" class="glowLove1">
+<h1>Happy Birthday Nani ❤️</h1>
+<p>Wishing you the happiest birthday...🫠🤌🏻💗</p>
+<p>You are my happiest place.</p>
+</div>
+
+<div>
+
+<div class="bigHeart" onclick="breakHeart()">❤️</div>
+
+<div class="tapHeart">
+Tap the Heart<br>⬆️
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 2 -->
+
+<div class="section" class="glowLove1">
+
+<h1>Our Memories 📸</h1>
+
+<div class="giftBox" onclick="openGift()" class="glowLove1">
+🎁
+<p>Open the gift box</p>
+</div>
+
+<div class="carousel" id="memories" style="display:none;">
+
+<img src="c:\Users\KEERTHI\Pictures\Nani\Gemini_Generated_Image_su7qhasu7qhasu7q.png">
+<img src="c:\Users\KEERTHI\Pictures\Nani\Gemini_Generated_Image_uj38e1uj38e1uj38.png">
+<img src="c:\Users\KEERTHI\Pictures\Nani\.trashed-1775105834-IMG_20260303_002725.jpg">
+
+</div>
+
+</div>
+
+<!-- 3 -->
+
+<div class="section" class="glowLove1">
+
+<h1>Make A Wish 🎂</h1>
+
+<div style="font-size:80px;cursor:pointer;" onclick="blowCandle()">🎂</div>
+
+<p id="candle" style="font-size:40px;">🕯️</p>
+
+<p>Tap cake to blow candle</p>
+
+</div>
+
+<!-- 4 -->
+
+<div class="section" class="glowLove1">
+
+<h1>Our Love Timer ⏳</h1>
+
+<div id="timer"></div>
+
+<button onclick="next()">Next</button>
+
+</div>
+
+<!-- 5 -->
+
+<div class="section">
+
+<h2>Reasons Why I Love You ❤️</h2>
+
+<div id="reasonsBoard"></div>
+
+<button onclick="next()">Next</button>
+
+</div>
+
+<!-- 6 -->
+
+<div class="section">
+
+<h1>Tap The Envelope</h1>
+
+<div class="envelope" onclick="openEnvelope()">💌</div>
+
+<div id="letter">
+
+<p id="typedMessage"></p>
+
+<div id="heartNext">
+<p>If you feel my love... Tap my heart❤️</p>
+<div onclick="next()">❤️</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- 7 -->
+
+<div class="section">
+
+<div class="finalMessage">
+
+<p>
+No matter where life takes us...❤️<br>
+I will always choose you.<br>
+Again and again.<br>
+Because I have you 🥹<br>
+Happy Birthday Nani🎀🧿
+</p>
+
+<div class="glowLove">I LOVE YOU NANI ❤️</div>
+
+</div>
+
+</div>
+
+<script>
+
+let current=0
+const sections=document.querySelectorAll(".section")
+
+function next(){
+sections[current].classList.remove("active")
+current++
+sections[current].classList.add("active")
+
+if(current===6){
+createHeartShape()
+}
+}
+
+/* first heart */
+
+function breakHeart(){
+
+let music=document.getElementById("bgMusic")
+if(music.paused){music.play()}
+
+for(let i=0;i<25;i++){
+
+let h=document.createElement("div")
+
+h.className="explodeHeart"
+h.innerHTML="❤️"
+
+h.style.left=Math.random()*100+"vw"
+h.style.top=Math.random()*100+"vh"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),1500)
+
+}
+
+setTimeout(()=>next(),1200)
+}
+
+/* falling hearts */
+
+function createFallingHeart(){
+
+let h=document.createElement("div")
+
+h.className="fallHeart"
+h.innerHTML="❤️"
+
+h.style.left=Math.random()*100+"vw"
+h.style.fontSize=(12+Math.random()*10)+"px"
+h.style.animationDuration=(6+Math.random()*5)+"s"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),11000)
+
+}
+
+setInterval(createFallingHeart,700)
+
+/* gift */
+
+function openGift(){
+
+document.querySelector(".giftBox").style.display="none"
+
+const gallery=document.getElementById("memories")
+gallery.style.display="flex"
+
+const images=gallery.querySelectorAll("img")
+
+images.forEach((img,i)=>{
+setTimeout(()=>{img.classList.add("flip")},i*500)
+})
+
+setTimeout(()=>next(),3500)
+}
+
+/* cake */
+
+function blowCandle(){
+
+document.getElementById("candle").innerHTML="💨"
+
+setTimeout(()=>{
+next()
+fireworks()
+},1500)
+}
+
+/* fireworks */
+
+function fireworks(){
+
+for(let i=0;i<30;i++){
+
+let fw=document.createElement("div")
+
+fw.className="firework"
+fw.innerHTML="✨"
+
+fw.style.left=Math.random()*100+"vw"
+fw.style.top=Math.random()*80+"vh"
+
+document.body.appendChild(fw)
+
+setTimeout(()=>fw.remove(),1500)
+
+}
+}
+
+/* heart shape */
+
+function createHeartShape(){
+
+let hearts=[]
+
+for(let i=0;i<140;i++){
+
+let h=document.createElement("div")
+h.className="floatingHeart"
+h.innerHTML="❤️"
+
+h.style.left=Math.random()*window.innerWidth+"px"
+h.style.top=Math.random()*window.innerHeight+"px"
+
+document.body.appendChild(h)
+hearts.push(h)
+
+}
+
+setTimeout(()=>{
+
+hearts.forEach((h,i)=>{
+
+let t=i/140*Math.PI*2
+
+let x=16*Math.pow(Math.sin(t),3)
+let y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t)
+
+x*=12
+y*=12
+
+/* RIGHT SIDE POSITION */
+
+let centerX=window.innerWidth*0.75
+let centerY=window.innerHeight/2
+
+h.style.left=centerX+x+"px"
+h.style.top=centerY-y+"px"
+
+
+})
+
+},1200)
+
+setTimeout(()=>{
+breakBigHeart()
+},4000)
+
+}
+
+
+/* love timer */
+
+const startDate=new Date("2025-10-29")
+
+function updateTimer(){
+
+const now=new Date()
+const diff=now-startDate
+const days=Math.floor(diff/(1000*60*60*24))
+
+document.getElementById("timer").innerHTML=days+" days with you ❤️"
+
+}
+
+setInterval(updateTimer,1000)
+
+/* reasons */
+
+const reasons=[
+"When I cannot love myself, you still love me.",
+"You understand me.",
+"You respect my boundaries.",
+"You accept my pain and anger.",
+"You love the best and worst version of me.",
+"You are always honest with me.",
+"You are my lifetime therapy.",
+"Your smile comforts me."
+]
+
+const board=document.getElementById("reasonsBoard")
+
+reasons.forEach(reason=>{
+let strip=document.createElement("div")
+strip.className="reasonStrip"
+strip.innerHTML="❤️ "+reason
+board.appendChild(strip)
+})
+
+/* envelope */
+
+const message=`Nani,
+
+Nee tho unna prathi moment naa life lo happiest memory.
+
+Nuvvu natho unte challu anni nenu chusukunta, ela ra nuvvu nanu padisav
+
+debbalu m thakaledhu le 😂
+
+Endukoo telidhu naana netho unte life long happy unta ani namakam aithey undhi
+
+nenu ninnu entha premisthuna antha premisthuna ani chepanu kani neku me amma
+
+lotu kuda lekunda chusukunta ani aithey chepagalanu....💕🥰
+
+Happy Birthday Naana...❤️
+
+Forever yours,
+
+Bujji`
+
+function openEnvelope(){
+
+document.getElementById("letter").style.display="block"
+
+let i=0
+
+function type(){
+
+if(i<message.length){
+document.getElementById("typedMessage").innerHTML+=message.charAt(i)
+i++
+setTimeout(type,40)
+}
+else{
+document.getElementById("heartNext").style.display="block"
+}
+
+}
+
+type()
+
+}
+
+</script>
+
+</body>
+</html>
